@@ -1,0 +1,294 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="indexmaster.master.cs" Inherits="hotel_booking.indexmaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+  body {
+    background-color: #001a33;
+    color: #e0f7fa;
+}
+
+.navbar {
+    background-color: #00334e;
+}
+
+.navbar-brand {
+    color: #00bcd4 !important;
+}
+
+.navbar-brand:hover {
+    color: #80deea !important; /* Slightly lighter cyan on hover */
+}
+
+.nav-link {
+    color: #80deea !important;
+}
+
+.nav-link:hover {
+    color: #00bcd4 !important; /* Bright cyan on hover */
+}
+
+.nav-link.active {
+    background-color: #006064 !important;
+    color: #e0f7fa !important;
+}
+
+.display-4 {
+    font-weight: bold;
+    margin-top: 40px;
+    color: #00bcd4;
+}
+
+.nav-pills .nav-link {
+    color: #80deea !important;
+}
+
+.nav-pills .nav-link:hover {
+    color: #00bcd4 !important; /* Bright cyan for hover */
+}
+
+.nav-pills .nav-link.active {
+    background-color: #006064 !important;
+}
+
+.form-control {
+    background-color: #002f4b;
+    color: #e0f7fa;
+    border: 1px solid #00bcd4;
+}
+
+.form-control:focus {
+    border-color: #80deea;
+    box-shadow: 0 0 10px rgba(128, 222, 234, 0.5); /* Light cyan glow on focus */
+}
+
+.btn-success {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+.btn-success:hover {
+    background-color: #00796b; /* Darker teal on hover */
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5); /* Cyan glow on hover */
+}
+
+footer {
+    background-color: #002f4b;
+    color: #80deea;
+}
+
+footer h6 {
+    color: #00bcd4;
+}
+
+footer a {
+    color: #80deea;
+}
+
+footer a:hover {
+    color: #00bcd4; /* Brighter cyan on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+footer .social-icons a {
+    color: #00bcd4 !important;
+}
+
+footer .social-icons a:hover {
+    color: #80deea !important; /* Lighter cyan on hover */
+    transform: scale(1.2); /* Enlarge icons on hover */
+}
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="" alt="Logo" style="height: 40px;">
+                    Mauritian Advisor
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Trips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">More</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Section -->
+        <div class="container text-center mt-5">
+            <h1 class="display-4 text-white">Where to?</h1>
+            <ul class="nav nav-pills justify-content-center mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Search All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Things to Do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Restaurants</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Vacation Rentals</a>
+                </li>
+            </ul>
+
+            <div class="input-group mb-3 w-75 mx-auto">
+                <input type="text" class="form-control" placeholder="Places to go, things to do, hotels..." aria-label="Search" aria-describedby="search-button">
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="button" id="search-button">Search</button>
+                </div>
+            </div>
+        </div>
+
+            <footer class="bg-dark text-light pt-5 pb-4">
+     <div class="container">
+        <!-- Trending Section -->
+        <div class="row">
+            <div class="col-12">
+                <h5 class="text-uppercase font-weight-bold">Trending in Mauritius</h5>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h6>Popular Destinations</h6>
+                        <ul class="list-unstyled">
+                            <li>Port Louis</li>
+                            <li>Grand Baie</li>
+                            <li>Flic en Flac</li>
+                            <li>Trou aux Biches</li>
+                            <li>Le Morne</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li>Black River Gorges</li>
+                            <li>Chamarel</li>
+                            <li>Île aux Cerfs</li>
+                            <li>Blue Bay</li>
+                            <li>Mahebourg</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li>Tamarin</li>
+                            <li>Pereybere</li>
+                            <li>Bel Ombre</li>
+                            <li>Mont Choisy</li>
+                            <li>Beau Vallon</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <ul class="list-unstyled">
+                            <li>Casela Nature Park</li>
+                            <li>La Vanille Crocodile Park</li>
+                            <li>Ganga Talao</li>
+                            <li>Vallée des Couleurs</li>
+                            <li>Rodrigues Island</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bg-light">
+
+
+        <!-- Link Sections -->
+        <div class="row">
+            <div class="col-md-3">
+                <h6 class="text-uppercase font-weight-bold">About Mauritius Advisor</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">About Us</a></li>
+                    <li><a href="#" class="text-light">Resources and Policies</a></li>
+                    <li><a href="#" class="text-light">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h6 class="text-uppercase font-weight-bold">Explore</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">Write a review</a></li>
+                    <li><a href="#" class="text-light">Add a Place</a></li>
+                    <li><a href="#" class="text-light">Help Center</a></li>
+                    <li><a href="#" class="text-light">Travel Articles</a></li>
+                </ul>
+            </div>
+
+           
+        </div>
+
+        <hr class="bg-light">
+
+        <!-- Footer Bottom Row -->
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-0">
+                    <a href="#" class="text-light">Terms of Use</a> |
+                    <a href="#" class="text-light">Privacy and Cookies Statement</a> |
+                    <a href="#" class="text-light">Cookie consent</a> |
+                    <a href="#" class="text-light">Contact us</a>
+                </p>
+                <p class="text-muted small">&copy; 2024 Mauritius Advisor LLC All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-right">
+                <select class="custom-select d-inline-block w-auto text-dark">
+                    <option value="USD">RS MUR</option>
+                    
+                </select>
+                <select class="custom-select d-inline-block w-auto text-dark">
+                    <option value="United States">Mauritian Rupees</option>
+                  
+                </select>
+                <div class="social-icons mt-2">
+                    <a href="#" class="text-light mr-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light mr-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light mr-2"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+     <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-78A6pwZWU4v1nWh3I1F5t7uMEexngRzmVns/lpQ9YliIWXYjK/YuhmSQXrjj38UJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
